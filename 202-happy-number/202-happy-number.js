@@ -3,37 +3,23 @@
  * @return {boolean}
  */
 var isHappy = function(n) {
-    if(n<=0)return false;
-    let str;
-    let sum=0;
-    let flag=true;
+    let obj= {'0':0, '1':1, '2':4, '3':9, '4':16, '5':25, '6':36, '7':49, '8':64, '9':81};
+    
     let set= new Set();
-    // console.log(" "+n);
-    while(!set.has(sum))
+    let sum=0;
+    while(!set.has(n))
         {
-            set.add(sum);
-            if(flag==false)
-            {
-                str= '' + sum;
-                sum=0;
-            }
-            if(flag==true)
-                {
-                    str='' + n;
-                    flag=false;
-                }
-            
-            for(let c of str)
-                {
-                    c= +c;
-                    // console.log("c: ",c);
-                    sum+= c*c;
-                    // console.log("sum",sum);
-                }
-            //console.log("str",str);
-            console.log("sum",sum);
-            if(sum==1)return true;
-            if(sum==n)return false;
+        set.add(n);
+         let str= n.toString();   
+         n=0;
+           // console.log(str);
+    for(let c of str)
+        {
+          n+= obj[c];  
         }
+    console.log(n);
+    if(n==1)return true;
+        }
+    
     return false;
 };
