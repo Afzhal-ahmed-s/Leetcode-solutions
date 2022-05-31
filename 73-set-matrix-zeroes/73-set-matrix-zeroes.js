@@ -5,20 +5,17 @@
 var setZeroes = function(matrix) {
     let row=new Set(),col=new Set();
     let m=matrix.length, n=matrix[0].length;
-    // console.log("length",l);
     
     for(let i=0;i<m;i++){
         for(let j=0;j<n;j++){
-            // console.log("all",i,j);
+
             if(matrix[i][j]==0){
                 row.add(i);
                 col.add(j);
-                // console.log(i,j);
             }
         }
     }
-    // console.log(row,col);
-    
+
     for(let i=0;i<m;i++){
         if(row.has(i))matrix[i]=matrix[i].map(x=>x*0);
     }
