@@ -7,11 +7,17 @@ var setZeroes = function(matrix) {
     let rows=matrix.length, cols=matrix[0].length;
     
     for(let i=0;i<cols;i++){
-        if(matrix[0][i]==0)firstrow=true;
+        if(matrix[0][i]==0){
+            firstrow=true;
+            break;
+        }
     }
     
       for(let i=0;i<rows;i++){
-        if(matrix[i][0]==0)firstcol=true;
+        if(matrix[i][0]==0){
+            firstcol=true;
+          break;
+        }
     }
     
     for(let i=1;i<rows;i++){
