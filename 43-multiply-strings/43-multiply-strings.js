@@ -11,7 +11,7 @@ var multiply = function(num1, num2) {
         let carry = 0
         for (let j = num2.length-1;j>=0; j--) {
             product[1 + i + j] += carry + num1[i] * num2[j];
-            console.log(i+j+1);
+            // console.log(i+j+1);
             carry = Math.floor(product[1+i+j] / 10);
             product[1 + i + j] = product[1 + i + j] % 10
         }
