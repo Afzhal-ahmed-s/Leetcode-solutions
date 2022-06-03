@@ -4,18 +4,22 @@
  * @return {string}
  */
 var multiply = function(num1, num2) {
-    // return eval(BigInt(num1)*BigInt(num2)).toString();
-    
-    let product = new Array(num1.length + num2.length).fill(0)
-    for (let i = num1.length-1;i>=0 ;i--) {
-        let carry = 0
-        for (let j = num2.length-1;j>=0; j--) {
-            product[1 + i + j] += carry + num1[i] * num2[j];
-            // console.log(i+j+1);
-            carry = Math.floor(product[1+i+j] / 10);
-            product[1 + i + j] = product[1 + i + j] % 10
+    let n1=num1.length, n2=num2.length;
+if (num1== '0' || num2== '0')return '0';
+let result= new Array(n1 + n2).fill(0);
+
+    for(let i=n1-1;i>=0;i--){
+        
+        //carry=0;
+        
+        for(let j=n2-1;j>=0;j--){
+            let carry= i+j, curr=i+j+1;
+            let sum= result[curr] + num1[i]*num2[j];
+            result[curr]= sum%10;
+            result[carry]+= Math.floor(sum/10);
         }
-        product[i] += carry
+        //console.log(result);
     }
-    return product.join("").replace(/^0*(\d)/, "$1");
-};
+    if(result[0]==0)result.shift();
+    return result.join("");
+}
