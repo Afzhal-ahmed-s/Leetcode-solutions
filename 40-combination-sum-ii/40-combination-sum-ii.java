@@ -20,12 +20,18 @@ class Solution {
             return;
         }
         else{
+            //include
             temp.add(candidates[index]);
-            backTrack(index+1, runNum+candidates[index] , temp, candidates, answer, target);
+            runNum += candidates[index];
+            backTrack(index+1, runNum , temp, candidates, answer, target);
+            
+            //exclude
             temp.remove(temp.size()-1);
+            //to not include duplicate elements in this exclude branch
             while(index < candidates.length-1 && candidates[index]==candidates[index+1]){
                 index++;
             }
+            runNum -= candidates[index];
             backTrack(index+1, runNum , temp, candidates, answer, target);
         }
     }
