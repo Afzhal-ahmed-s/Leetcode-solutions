@@ -3,6 +3,9 @@ class Solution {
         List<List<String>> answer = new ArrayList<>();
         int i = 0;
         char[][] chessBoard = new char[n][n];
+        boolean[] UP = new boolean[n];
+        boolean[] UL = new boolean[2*n-1];
+        boolean[] UR = new boolean[2*n-1];
         
         for(int a=0; a<n; a++){
             for(int b=0; b<n; b++){
@@ -10,12 +13,12 @@ class Solution {
             }
         }
         
-        dfs(i, n, chessBoard, answer);
+        dfs(i, n, chessBoard, answer, UP, UL, UR);
         return answer;
     }
     
     public static void dfs
-        (int i, int n, char[][] chessBoard, List<List<String>> answer)
+        (int i, int n, char[][] chessBoard, List<List<String>> answer,boolean[] UP, boolean[]           UL, boolean[]UR)
     {
         if(i == n){
             answer.add(construct(chessBoard));
@@ -23,11 +26,19 @@ class Solution {
         }
         else{
             for(int j=0; j<n; j++){
-                if(isSafe(i, j, chessBoard)){
+                if(UP[j] == false && UR[i+j] == false && UL[i-j+n-1] == false){
                     
+                    UP[j] = true;
+                    UR[i+j] = true;
+                    UL[i-j+n-1] = true;
                     chessBoard[i][j] = 'Q';
-                    dfs(i+1, n, chessBoard, answer);
+                    
+                    dfs(i+1, n, chessBoard, answer, UP, UL, UR);
+                    
                     chessBoard[i][j] = '.';
+                    UP[j] = false;
+                    UR[i+j] = false;
+                    UL[i-j+n-1] = false;
                 }
             }
         }
@@ -43,36 +54,4 @@ class Solution {
         return oneCombinationOfChessBoard;
     }
     
-    public static boolean isSafe(int i, int j, char[][] chessBoard){
-        
-        int n = chessBoard.length;
-        int tempI = i;
-        int tempJ = j;
-        
-        while(tempI >= 0){
-            if(chessBoard[tempI][tempJ] == 'Q')return false;
-            tempI--;
-        }
-        
-        tempI = i;
-        tempJ = j;
-        
-        while(tempI >=0 && tempJ <n && tempJ >=0){
-            if(chessBoard[tempI][tempJ] == 'Q')return false;
-            tempI--;
-            tempJ--;
-        }
-        
-        tempI = i;
-        tempJ = j;
-        
-        while(tempI >=0 && tempJ <n && tempJ >=0){
-            if(chessBoard[tempI][tempJ] == 'Q')return false;
-            tempI--;
-            tempJ++;
-        }
-        
-        return true;
-        
-    }
 }
