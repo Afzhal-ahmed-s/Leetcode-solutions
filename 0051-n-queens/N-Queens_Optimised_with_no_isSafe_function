@@ -1,0 +1,63 @@
+//Optimized using 3 additional arrays (using math) and eliminating 3 while loops
+
+class Solution {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> answer = new ArrayList<>();
+        int i = 0;
+        char[][] chessBoard = new char[n][n];
+        boolean[] UP = new boolean[n];
+        boolean[] UL = new boolean[2*n-1];
+        boolean[] UR = new boolean[2*n-1];
+        
+        for(int a=0; a<n; a++){
+            for(int b=0; b<n; b++){
+                chessBoard[a][b] = '.';
+            }
+        }
+        
+        dfs(i, n, chessBoard, answer, UP, UL, UR);
+        return answer;
+    }
+    
+    public static void dfs
+        (int i, int n, char[][] chessBoard, List<List<String>> answer,boolean[] UP, boolean[]           UL, boolean[]UR)
+    {
+        if(i == n){
+						//To construct in a list of list out of 2D matrix in array type
+            answer.add(construct(chessBoard));
+            return;
+        }
+        else{
+            for(int j=0; j<n; j++){
+                if(UP[j] == false && UR[i+j] == false && UL[i-j+n-1] == false){
+                 
+								    //inclusion steps
+                    UP[j] = true;
+                    UR[i+j] = true;
+                    UL[i-j+n-1] = true;
+                    chessBoard[i][j] = 'Q';
+                    
+										//recursive call
+                    dfs(i+1, n, chessBoard, answer, UP, UL, UR);
+                    
+										//Back tracking steps
+                    chessBoard[i][j] = '.';
+                    UP[j] = false;
+                    UR[i+j] = false;
+                    UL[i-j+n-1] = false;
+                }
+            }
+        }
+    }
+    
+    public static List<String> construct(char[][] chessBoard){
+        List<String> oneCombinationOfChessBoard = new ArrayList<>();
+        
+        for(int i=0; i<chessBoard.length; i++){
+            String s = new String(chessBoard[i]);
+            oneCombinationOfChessBoard.add(s);
+        }
+        return oneCombinationOfChessBoard;
+    }
+    
+}
