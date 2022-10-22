@@ -17,6 +17,7 @@ class Solution {
             res = Math.min(res, nums[mid]);
             
             if(nums[mid] >= nums[s]) s = mid +1;
+            
             else e = mid - 1;
             
         }
