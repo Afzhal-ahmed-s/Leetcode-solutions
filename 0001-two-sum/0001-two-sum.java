@@ -1,3 +1,5 @@
+//TC: O(N)
+//SC: O(N)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int len = nums.length;
