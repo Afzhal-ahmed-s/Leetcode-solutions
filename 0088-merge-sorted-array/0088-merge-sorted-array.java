@@ -1,5 +1,6 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+//my intutional solution        
 //         int[] dupNums1 = new int[m];
         
 //         for(int a=0; a<m; a++){
@@ -33,10 +34,14 @@ class Solution {
 //         }
 //         //System.out.println(run+" "+c1+" "+m+" "+c2+" "+n);
         
-        for(int a=0; a<n; a++){
-            nums1[m+a] = nums2[a];
-        }
+           int t1 = m-1; int t2 = n-1; int finalTail= m+n-1;
         
-        Arrays.sort(nums1);
+            while(t1>=0 && t2>=0){
+                nums1[finalTail--] = (nums1[t1] > nums2[t2]) ? nums1[t1--] : nums2[t2--];
+            }
+            
+            while(t2 >=0){
+                nums1[finalTail--] = nums2[t2--];
+            }
 }
 }
