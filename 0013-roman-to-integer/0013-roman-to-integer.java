@@ -16,7 +16,6 @@ class Solution {
         int len= s.length();
         Boolean LastIndex = false;
         for(int a=0; a<len-1; a++){
-            System.out.println("Check: "+a+" "+ans);
 
             if(s.charAt(a)=='I'){
                 if(s.charAt(a+1)=='X')
