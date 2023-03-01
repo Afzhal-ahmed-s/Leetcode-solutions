@@ -7,9 +7,7 @@ class Solution {
         int firstStringLen = firstString.length;
         if(firstStringLen==0)return "";
         int ans = Integer.MAX_VALUE;
-        
-        //for(char c : firstString)System.out.print(c+" ");
-        //System.out.println();
+
         if(len>1){
         for(int a=1; a<len; a++){
          int pointer = 0;
@@ -18,13 +16,11 @@ class Solution {
             int range = Math.min(firstStringLen, currentStringLen);
             for(int b=0; b<range; b++){
                 if(strs[a].charAt(b)==firstString[b]){
-                    //System.out.println(strs[a].charAt(b)+" = "+firstString[b]);
                     pointer++;
                 }
                 else break;
             }
             ans = Math.min(ans, pointer);
-            //System.out.println(a+" - "+pointer);
         }
         }
         if(ans == Integer.MAX_VALUE)return strs[0];
