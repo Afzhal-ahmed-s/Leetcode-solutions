@@ -4,9 +4,7 @@ class Solution {
         
         for(int a=0; a<hlen; a++){
             if(haystack.charAt(a)==needle.charAt(0)){
-                if(hlen-a >= nlen){
-                    if(haystack.substring(a,a+nlen).equals(needle))return a;
-                }
+                if(hlen-a >= nlen && haystack.substring(a,a+nlen).equals(needle))return a;                
             }
         }
         return -1;
