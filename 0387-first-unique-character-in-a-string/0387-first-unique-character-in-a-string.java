@@ -9,7 +9,7 @@ class Solution {
         }
         
         for(int a=0; a<len; a++){
-            if(charArr[s.charAt(a) - 'a'] ==1)return a;
+            if(charArr[s.charAt(a) - 97] ==1)return a;
         }
         return -1;
     }
