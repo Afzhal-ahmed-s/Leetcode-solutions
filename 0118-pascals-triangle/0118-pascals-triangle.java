@@ -2,16 +2,7 @@ class Solution {
     public List<List<Integer>> generate(int numRows) {
         
         List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> rowOne = Arrays.asList(1);
-        List<Integer> rowTwo = Arrays.asList(1,1);
 
-        
-        if(numRows == 1){
-            ans.add(rowOne); return ans;
-        }
-        if(numRows == 2){
-            ans.add(rowOne); ans.add(rowTwo); return ans;
-        }
         
         for(int a=1; a<=numRows; a++){
             List<Integer> local = new ArrayList<>();
