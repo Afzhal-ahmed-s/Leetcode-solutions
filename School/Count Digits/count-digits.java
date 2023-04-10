@@ -33,7 +33,6 @@ class Solution{
         
         for(int i=0; i<arr.length; i++){
             int num = Integer.parseInt(arr[i]);
-            //System.out.print(num+", ");
             if(num > 0 && N % num == 0)count++;
         }
         return count;
