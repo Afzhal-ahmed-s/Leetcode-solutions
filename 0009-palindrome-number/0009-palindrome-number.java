@@ -13,7 +13,6 @@ class Solution {
             revNum = revNum*10 + lastDigit;
             n= n/10;
         }
-        //System.out.println("check: "+ n+", "+revNum);
         return (n == revNum || n == revNum/10) ? true : false;
         
        
