@@ -10,7 +10,7 @@ class Solution {
                 if(num/i != i && num/i != num)ans+= (num/i);
         }
         }
-        //System.out.println("Check: ans= "+ans+" , num= "+num);
+
         return (ans == num) ? true : false;
     }
 }
