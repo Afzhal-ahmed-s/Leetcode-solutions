@@ -35,18 +35,21 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
 
-        if(n == 1)return arr[0];
-        
-        int max = arr[0];
-        int secondLargest = -1;
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
         
         for(int i=0; i<n; i++){
-            max = Math.max(max, arr[i]);
+            if(arr[i] > largest){
+                secondLargest = largest;
+                largest = arr[i];
+            }
+            else if(arr[i] > secondLargest && arr[i] != largest){
+                secondLargest = arr[i];
+            }
         }
-        
-        for(int i=0; i<n; i++){
-            if(arr[i] != max && arr[i] > secondLargest)secondLargest = arr[i];
-        }
+
+        if(secondLargest == largest || secondLargest == Integer.MIN_VALUE)return -1;
         return secondLargest;
+       
     }
 }
