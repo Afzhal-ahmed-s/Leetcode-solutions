@@ -37,7 +37,7 @@ public class QuickSort {
             if(i < j)swap(arr, i, j);
         }
         swap(arr, low, j);
-        printArray(arr);
+        //printArray(arr);
         return j;
     }
 
