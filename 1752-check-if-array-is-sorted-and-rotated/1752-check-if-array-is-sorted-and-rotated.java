@@ -1,5 +1,6 @@
 class Solution {
     public boolean check(int[] nums) {
+        
         boolean ans = false;
         boolean intiallySorted = true;
         int length = nums.length;
