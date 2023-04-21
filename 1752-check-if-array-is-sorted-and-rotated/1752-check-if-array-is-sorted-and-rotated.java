@@ -11,7 +11,7 @@ class Solution {
                 count++;
             }
         }
-        System.out.println(count);
+
         if(intiallySorted)return true;
         if(count > 1)return false;
         
