@@ -1,25 +1,18 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int nonZeroIndex = 0;
-        int length = nums.length;
-        int numberToPlaceAtIndex = 0;
         
-        while( nonZeroIndex < length ){
-            
-            while(nonZeroIndex < length && nums[nonZeroIndex] == 0 )nonZeroIndex++;
-            
-            if(nonZeroIndex < length){
-              
-            if(nonZeroIndex != numberToPlaceAtIndex)
-            {
-                nums[numberToPlaceAtIndex] = nums[nonZeroIndex];
-                nums[nonZeroIndex] = 0;
+        int snowBall = 0;
+        int length = nums.length;
+        
+        for(int i=0; i<length; i++){
+            if(nums[i]==0)++snowBall;
+            else if(snowBall > 0){
+                nums[i-snowBall] = nums[i];;
+                nums[i]=0;
             }
-                
-            nonZeroIndex++;
-            numberToPlaceAtIndex++;
-                
-            }    
+            else continue;
         }
+        
+        
     }
 }
