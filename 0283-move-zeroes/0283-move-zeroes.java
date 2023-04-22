@@ -9,8 +9,7 @@ class Solution {
             while(nonZeroIndex < length && nums[nonZeroIndex] == 0 )nonZeroIndex++;
             
             if(nonZeroIndex < length){
-            //System.out.println(nonZeroIndex+" "+numberToPlaceAtIndex);    
-            
+              
             if(nonZeroIndex != numberToPlaceAtIndex)
             {
                 nums[numberToPlaceAtIndex] = nums[nonZeroIndex];
