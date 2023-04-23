@@ -27,11 +27,11 @@ public class QuickSort {
         while(i < j){
 
             //arr[i] <= pivot  for ascending, for descending arr[i] >= pivot 
-            while(arr[i] <= pivot && i < high){
+            while(arr[i] <= pivot && i <= high){
                 i++;
             }
             //arr[j] > pivot  for ascending, for descending arr[j] < pivot 
-            while(arr[j] > pivot && j > low){
+            while(arr[j] > pivot && j >= low){
                 j--;
             }
             if(i < j)swap(arr, i, j);

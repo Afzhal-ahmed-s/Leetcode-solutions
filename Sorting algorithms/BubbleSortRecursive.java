@@ -43,7 +43,7 @@ public class BubbleSortRecursive {
 
        //For understanding and debugging
        //System.out.println("Check: "+ startIndex+", "+endIndex+" - "+allSortedAlready[0]);
-       // printArray(arr);
+       //printArray(arr);
         helper(arr, lengthOfArray, startIndex + 1, endIndex, allSortedAlready);
     }
 
