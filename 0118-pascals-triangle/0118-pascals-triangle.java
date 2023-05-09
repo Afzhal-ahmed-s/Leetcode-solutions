@@ -4,18 +4,18 @@ class Solution {
         List<List<Integer>> ans = new ArrayList<>();
 
         for(int a=1; a<=numRows; a++){
-            List<Integer> local = new ArrayList<>();
+            List<Integer> locall = new ArrayList<>();
            
             for(int b=1; b<=a; b++){
-                if(b==1 || b==a)local.add(1);
+                if(b==1 || b==a)locall.add(1);
                 else{
                     List<Integer> tempList = ans.get(a -1 -1);
                     int insertionNum = tempList.get(b-1-1) + tempList.get(b-1);
-                    local.add( insertionNum );
+                    locall.add( insertionNum );
                 }
             }
             
-            ans.add(local);
+            ans.add(locall);
         }
         
         return ans;
