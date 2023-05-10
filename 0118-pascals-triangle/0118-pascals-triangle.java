@@ -11,7 +11,7 @@ class Solution {
             int previousRow = i-1;
             List<Integer> local = new ArrayList<>();
             List<Integer> previousRowList = ans.get(previousRow);
-            //System.out.println("Check: "+previousRowList);
+
             for(int j=0; j<=i; j++){
                 if(j==0 || j== i)local.add(1);
                 else{
