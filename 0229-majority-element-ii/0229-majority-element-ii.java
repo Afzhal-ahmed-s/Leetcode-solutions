@@ -7,6 +7,7 @@ class Solution {
         
         
         for(int i=0; i<length; i++){
+            //post && condition is for edge case the reason is available in striver's video in optimal soslution section
             if(count1 == 0 && nums[i] != el2){
                 count1++;
                 el1 = nums[i];
